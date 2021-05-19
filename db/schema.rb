@@ -10,10 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_11_152217) do
+ActiveRecord::Schema.define(version: 2021_05_19_150427) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.string "slug"
+  end
 
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string "slug", null: false
@@ -24,6 +30,27 @@ ActiveRecord::Schema.define(version: 2021_05_11_152217) do
     t.index ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true
     t.index ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
     t.index ["sluggable_type", "sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_type_and_sluggable_id"
+  end
+
+  create_table "posts", force: :cascade do |t|
+    t.string "title"
+    t.text "body"
+    t.string "slug"
+    t.string "statut"
+    t.bigint "user_id", null: false
+    t.bigint "sub_category_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["sub_category_id"], name: "index_posts_on_sub_category_id"
+    t.index ["user_id"], name: "index_posts_on_user_id"
+  end
+
+  create_table "sub_categories", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.string "slug"
+    t.bigint "category_id", null: false
+    t.index ["category_id"], name: "index_sub_categories_on_category_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -40,4 +67,7 @@ ActiveRecord::Schema.define(version: 2021_05_11_152217) do
     t.index ["slug"], name: "index_users_on_slug", unique: true
   end
 
+  add_foreign_key "posts", "sub_categories"
+  add_foreign_key "posts", "users"
+  add_foreign_key "sub_categories", "categories"
 end

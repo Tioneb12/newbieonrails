@@ -11,6 +11,11 @@
   </head>
 
   <body>
-    <%= yield %>
+    <div>
+      <%= link_to "Home", root_path %> / <%= link_to "Catégories", categories_path %> / <%= link_to "Sous-Categories", sub_categories_path %> / <%= link_to "Articles", posts_path %> /
+    </div>
+    <div class="font-sans bg-white h-screen flex flex-col w-full">
+      <%= yield %>
+    </div>
   </body>
 </html>
