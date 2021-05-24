@@ -22,6 +22,18 @@ module Blog
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.1
+    config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}')]
+    config.i18n.enforce_available_locales = true
+    config.i18n.available_locales = %i[fr]
+    config.i18n.default_locale = :fr
+    config.time_zone = 'Paris'
+
+    config.generators do |g|
+      g.test_framework  nil #to skip test framework
+      g.assets  false
+      g.helper false
+      g.stylesheets false
+    end
 
     # Configuration for the application, engines, and railties goes here.
     #
