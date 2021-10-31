@@ -7,6 +7,7 @@ gem 'rails', '6.1.3.2'
 gem 'clearance'
 gem 'faker'
 gem 'friendly_id'
+gem 'image_processing', '~> 1.2'
 gem 'jbuilder', '~> 2.7'
 gem 'hotwire-rails'
 gem 'rails-i18n'
@@ -21,7 +22,6 @@ gem 'webpacker', '~> 4.0'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use Active Storage variant
-# gem 'image_processing', '~> 1.2'
 
 gem 'bootsnap', '>= 1.4.2', require: false
 
