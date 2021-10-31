@@ -4,6 +4,6 @@ class SubCategoriesController < ApplicationController
   end
 
   def show
-    @sub_category = SubCategory.friendly.find(params[:id])
+    @sub_category = SubCategory.includes(:posts).friendly.find(params[:id])
   end
 end

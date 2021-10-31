@@ -15,6 +15,8 @@ gem 'pagy'
 gem 'puma', '~> 4.1'
 gem 'route_translator'
 gem 'sass-rails', '>= 6'
+gem 'simple_form'
+gem 'tinymce-rails'
 gem 'webpacker', '~> 4.0'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
@@ -28,7 +30,9 @@ group :development, :test do
 end
 
 group :development do
+  gem 'bullet'
   gem 'better_errors'
+  gem 'binding_of_caller'
   gem 'web-console', '>= 3.3.0'
   gem 'listen', '~> 3.2'
   gem 'spring'

@@ -7,7 +7,6 @@ require("@rails/ujs").start()
 require("@rails/activestorage").start()
 require("channels")
 
-//mettre .scss pour du sass
 require("../../assets/stylesheets/application.css")
 
 

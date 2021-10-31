@@ -1,0 +1,14 @@
+<div>
+  <ul>
+    <% @posts.each do |post| %>
+      <li>
+        <%= post.title %> -
+        <%= link_to "Editer", edit_admin_post_path(post.id) %> -
+        <%= link_to "Supprimer",
+                    admin_post_path(post.id),
+                    :data => { confirm: "Etes vous sur de vouloir supprimer cet article ?" },
+                    method: :delete %>
+      </li>
+    <% end %>
+  </ul>
+</div>

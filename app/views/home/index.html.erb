@@ -1,3 +1,9 @@
+<div class="grid">
+  <% @categories.each do |category| %>
+    <%= link_to category.name, category_path(category.slug) %>
+  <% end %>
+</div>
+
 
 <div class="font-sans bg-white h-screen flex flex-col w-full">
 	<div class="h-screen bg-gradient-to-r from-green-400 to-blue-500">
