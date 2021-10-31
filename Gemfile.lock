@@ -126,7 +126,6 @@ GEM
       ruby-vips (>= 2.0.17, < 3)
     jbuilder (2.11.2)
       activesupport (>= 5.0.0)
-    json (2.6.1)
     listen (3.5.1)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
@@ -235,9 +234,8 @@ GEM
       rails (>= 6.0.0)
     tzinfo (2.0.4)
       concurrent-ruby (~> 1.0)
-    uglifier (2.7.2)
-      execjs (>= 0.3.0)
-      json (>= 1.8.0)
+    uglifier (4.2.0)
+      execjs (>= 0.3.0, < 3)
     uniform_notifier (1.14.2)
     web-console (4.1.0)
       actionview (>= 6.0.0)
@@ -290,7 +288,7 @@ DEPENDENCIES
   spring-watcher-listen (~> 2.0.0)
   tinymce-rails
   tzinfo-data
-  uglifier (~> 2.7)
+  uglifier (~> 4.2)
   web-console (>= 3.3.0)
   webdrivers
   webpacker (~> 4.0)

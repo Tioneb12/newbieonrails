@@ -18,7 +18,7 @@ gem 'route_translator'
 gem 'sass-rails', '>= 6'
 gem 'simple_form'
 gem 'tinymce-rails'
-gem 'uglifier', '~> 2.7'
+gem 'uglifier', '~> 4.2'
 gem 'webpacker', '~> 4.0'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
