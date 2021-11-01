@@ -40,18 +40,18 @@ Rails.application.configure do
   # config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect' # for NGINX
 
   # Store uploaded files on the local file system (see config/storage.yml for options).
-  config.active_storage.service = :local
-=begin
 
   config.active_storage.routes_prefix = '/img'
   config.active_storage.service = :amazon
+=begin
   config.active_storage.replace_on_assign_to_many = true
-  config.default_url_options = { host: 'https://www.santiagooo.com' }
-=end
   config.public_file_server.headers = {
     'Cache-Control' => 'public, s-maxage=31536000, max-age=1296000',
     'Expires' => 15.day.from_now.httpdate.to_s
   }
+=end
+
+  # config.default_url_options = { host: 'https://www.santiagooo.com' }
 
   # Mount Action Cable outside main process or domain.
   # config.action_cable.mount_path = nil
