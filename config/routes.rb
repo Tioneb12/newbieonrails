@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
-=begin
-=end
+  get '/robots.:format' => 'pages#robots'
   root 'home#index'
   localized do
     resources :posts, only: %i[index show new create]
