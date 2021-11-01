@@ -54,7 +54,8 @@ class Office::PostsController < OfficeController
       :created_at,
       :updated_at,
       :user_id,
-      :sub_category_id
+      :sub_category_id,
+      :main_image
     )
   end
 end
