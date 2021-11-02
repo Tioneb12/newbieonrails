@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   get '/robots.:format' => 'pages#robots'
+  post 'uploader/image', to: 'uploader#image'
   root 'home#index'
   localized do
     resources :posts, only: %i[index show new create]

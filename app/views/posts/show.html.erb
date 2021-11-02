@@ -3,4 +3,4 @@
 <% if @post.main_image.attached? %>
   <%= image_tag @post.main_image %>
 <% end %>
-<p><%= @post.body %></p>
+<p><%= @post.body.html_safe %></p>
