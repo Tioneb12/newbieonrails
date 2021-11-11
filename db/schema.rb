@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_31_185605) do
+ActiveRecord::Schema.define(version: 2021_11_11_180618) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,6 +47,29 @@ ActiveRecord::Schema.define(version: 2021_10_31_185605) do
     t.string "name"
     t.text "description"
     t.string "slug"
+    t.boolean "meta_robots_index", default: true
+    t.boolean "meta_robots_follow", default: true
+    t.string "meta_title"
+    t.string "meta_description"
+    t.string "meta_image"
+    t.integer "published_posts_count"
+  end
+
+  create_table "category_posts", force: :cascade do |t|
+    t.integer "post_id"
+    t.integer "category_id"
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.string "pseudo"
+    t.string "email"
+    t.string "website"
+    t.string "comment"
+    t.boolean "active"
+    t.bigint "post_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["post_id"], name: "index_comments_on_post_id"
   end
 
   create_table "friendly_id_slugs", force: :cascade do |t|
@@ -64,21 +87,23 @@ ActiveRecord::Schema.define(version: 2021_10_31_185605) do
     t.string "title"
     t.text "body"
     t.string "slug"
-    t.string "statut"
     t.bigint "user_id", null: false
-    t.bigint "sub_category_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["sub_category_id"], name: "index_posts_on_sub_category_id"
+    t.boolean "meta_robots_index", default: true
+    t.boolean "meta_robots_follow", default: true
+    t.string "meta_title"
+    t.string "meta_description"
+    t.string "meta_image"
+    t.string "excerpt"
+    t.boolean "statut", default: false
+    t.integer "comments_count"
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
-  create_table "sub_categories", force: :cascade do |t|
-    t.string "name"
-    t.text "description"
-    t.string "slug"
-    t.bigint "category_id", null: false
-    t.index ["category_id"], name: "index_sub_categories_on_category_id"
+  create_table "sub_themes", force: :cascade do |t|
+    t.integer "category_id"
+    t.integer "sub_theme_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -97,7 +122,6 @@ ActiveRecord::Schema.define(version: 2021_10_31_185605) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "posts", "sub_categories"
+  add_foreign_key "comments", "posts"
   add_foreign_key "posts", "users"
-  add_foreign_key "sub_categories", "categories"
 end
