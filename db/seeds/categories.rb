@@ -1,26 +1,44 @@
-Post.destroy_all
-SubCategory.destroy_all
-Category.destroy_all
-
 require 'faker'
 
 puts "Création catégories"
 
-Category.create!(
-  name: "Digital",
-  description: Faker::Lorem.paragraph_by_chars(number: 256, supplemental: false)
+@cat1 = Category.create!(
+  name: "Vanlife"
 )
 
-puts "Création sous-catégories"
-
-SubCategory.create!(
-  name: "SEO",
-  description: Faker::Lorem.paragraph_by_chars(number: 256, supplemental: false),
-  category_id: Category.first.id
+cat1_1 = Category.create!(
+  name: "J'aménage mon T4 volskwagen"
 )
 
-SubCategory.create!(
-  name: "Newbie on rails",
-  description: Faker::Lorem.paragraph_by_chars(number: 256, supplemental: false),
-  category_id: Category.first.id
+cat1_2 = Category.create!(
+  name: "Road Trips"
+)
+
+puts "Création sous thèmes"
+
+
+SubTheme.create(category_id: @cat1.id, sub_theme_id: cat1_1.id )
+SubTheme.create(category_id: @cat1.id, sub_theme_id: cat1_2.id )
+
+puts "Création catégories"
+
+@cat2 = Category.create!(
+  name: "Digital nomade"
+)
+
+cat2_1 = Category.create!(
+  name: "Je crée mon site de A à Z"
+)
+
+cat2_2 = Category.create!(
+  name: "SEO"
+)
+
+puts "Création sous thèmes"
+
+SubTheme.create(category_id: @cat2.id, sub_theme_id: cat2_1.id )
+SubTheme.create(category_id: @cat2.id, sub_theme_id: cat2_2.id )
+
+@cat3 = Category.create!(
+  name: "Images de nomade"
 )
