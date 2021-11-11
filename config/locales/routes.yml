@@ -1,5 +1,4 @@
 fr:
   routes:
-    posts: articles
-    sub_categories: sous-categories
-    categories: categories
+    posts: article
+    categories: theme
