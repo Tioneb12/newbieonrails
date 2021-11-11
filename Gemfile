@@ -6,7 +6,7 @@ gem 'rails', '6.1.3.2'
 
 gem 'aws-sdk-s3', require: false
 gem 'clearance'
-gem 'faker'
+gem 'faker', :require => false
 gem 'friendly_id'
 gem 'image_processing', '~> 1.2'
 gem 'jbuilder', '~> 2.7'
@@ -18,8 +18,10 @@ gem 'puma', '~> 4.1'
 gem 'route_translator'
 gem 'sass-rails', '>= 6'
 gem 'simple_form'
+gem 'simple_form_tailwind_css'
 gem 'tinymce-rails'
 gem 'uglifier', '~> 4.2'
+gem "view_component", require: "view_component/engine"
 gem 'webpacker', '~> 4.0'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
