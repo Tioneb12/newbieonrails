@@ -1,8 +1,17 @@
+<% content_for :meta_tags do %>
+  <%= render MetaTagsComponent.new(meta_robots_index: true,
+                                   meta_robots_follow: true,
+                                   meta_title: "",
+                                   meta_description: "",
+                                   meta_type: "Website",
+                                   meta_image: "" ) %>
+<% end %>
+
 <h1>Posts#index</h1>
 <p>Find me in app/views/posts/index.html.erb</p>
 
 <ul>
-    <% @posts.each do |post| %>
-        <li><%= link_to post.title, post_path(post.slug) %> - <%= post.id %></li>
-    <% end %>
+  <% @posts.each do |post| %>
+    <li><%= link_to post.title, post_path(post.slug) %> - <%= post.id %></li>
+  <% end %>
 </ul>

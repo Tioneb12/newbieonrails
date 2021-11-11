@@ -1,19 +1,14 @@
-<div class="grid">
+<% content_for :meta_tags do %>
+  <%= render MetaTagsComponent.new(meta_robots_index: false,
+                                   meta_robots_follow: false,
+                                   meta_title: "un Van de nomades",
+                                   meta_description: "Un site de passion",
+                                   meta_type: "Website",
+                                   meta_image: nil) %>
+<% end %>
+
+<div class="pt-20 grid">
   <% @categories.each do |category| %>
     <%= link_to category.name, category_path(category.slug) %>
   <% end %>
-</div>
-
-
-<div class="font-sans bg-white h-screen flex flex-col w-full">
-	<div class="h-screen bg-gradient-to-r from-green-400 to-blue-500">
-		<div class="px-4 py-48">
-			<div class="relative w-full text-center">
-				<h1
-					class="animate-pulse font-bold text-gray-200 text-2xl mb-6">
-				Your TailwindCSS setup is working if this pulses...
-				</h1>
-			</div>
-		</div>
-	</div>
 </div>
