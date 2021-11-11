@@ -1,0 +1,10 @@
+<header class="h-screen bg-fixed bg-center bg-cover bg-no-repeat flex flex-col justify-center"
+        style="background-image: linear-gradient(rgba(201, 201, 189, 0.4), rgba(201, 201, 189, 0.4)),
+        url(<%= helpers.url_for(@category&.main_image) %>)">
+  <div class="bg-blue-100 bg-opacity-30">
+    <h1 class="max-w-5xl mx-auto my-6 text-blue-800 text-6xl tracking-tight font-serif leading-none"><%= @category.name %></h1>
+    <div class="max-w-5xl mx-auto my-6 text-xl text-black font-sans text-opacity-75">
+      <%= @category.description.html_safe %>
+    </div>
+  </div>
+</header>
