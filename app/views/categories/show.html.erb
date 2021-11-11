@@ -1,10 +1,30 @@
-<div class="grid bg-blue-200">
-  <h1><%= @category.name %></h1>
-  <p><%= @category.description %></p>
-</div>
-<div class="grid bg-gray-400">
-  <% @category.sub_categories.each do |sub_category| %>
-    <h2><%= link_to sub_category.name, sub_category_path(sub_category.slug) %></h2>
-  <% end %>
-</div>
+<% content_for :meta_tags do %>
+  <%= render MetaTagsComponent.new(meta_robots_index: @category.meta_robots_index,
+                                   meta_robots_follow: @category.meta_robots_follow,
+                                   meta_title: @category.meta_title,
+                                   meta_description: @category.meta_description,
+                                   meta_type: "Website",
+                                   meta_image: (url_for(@category.main_image) if @category.main_image.attached?) ) %>
+<% end %>
 
+<%= render HeroComponent.new(category: @category) %>
+
+<article class="container w-100 flex flex-col max-w-5xl mx-auto my-6">
+  <nav class="bg-grey-light rounded font-sans w-full">
+    <div class="flex text-grey-dark">
+      <div><a href="#" class="font-bold">Home</a></div>
+      <div><span class="mx-2">></span></div>
+      <div><a href="#" class="font-bold">Library</a></div>
+      <div><span class="mx-2">></span></div>
+      <div>Data</div>
+    </div>
+  </nav>
+
+
+  <!--<div class="p-5 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-5">-->
+  <div class="my-6">
+    <% @category.posts.each do |post| %>
+      <%= render PostCardComponent.new(post: post) %>
+    <% end %>
+  </div>
+</article>

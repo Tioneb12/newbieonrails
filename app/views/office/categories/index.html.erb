@@ -1,0 +1,15 @@
+<h1>Liste des categories</h1>
+<ul>
+  <% @categories.each do |category| %>
+    <li>
+      <%= category.name %>- (#<%= category.id %>)
+      <%= link_to "Editer", edit_admin_category_path(category.slug) %> -
+      <%= link_to "Supprimer",
+                admin_category_path(category.slug),
+                :data => { confirm: "Etes vous sur de vouloir supprimer cet article ?" },
+                method: :delete %> -
+      <%= link_to "Voir", category_path(category.slug) %> </li>
+  <% end %>
+</ul>
+
+<%= link_to "Ajouter catégorie", new_admin_category_path %>

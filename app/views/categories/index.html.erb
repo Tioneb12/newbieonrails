@@ -1,6 +1,15 @@
+<% content_for :meta_tags do %>
+  <%= render MetaTagsComponent.new(meta_robots_index: true,
+                                   meta_robots_follow: true,
+                                   meta_title: "",
+                                   meta_description: "",
+                                   meta_type: "Website",
+                                   meta_image: "" ) %>
+<% end %>
+
 <h1>Liste des categories</h1>
 <ul>
     <% @categories.each do |category| %>
-        <li><%= link_to category.name, category_path(category.slug) %> (#<%= category.id %>) </li>
+        <li><%= link_to category.name, category_path(category.slug) %> (#<%= category.id %>)</li>
     <% end %>
 </ul>
